@@ -11,38 +11,29 @@ function MoraNodeBuilder () {
 
 /**
  * Builds a tree of Mora nodes from an array of Romanized strings.
- * @param {string[]} romans 
+ * @param {string[]} romans
+ * @returns {MoraNode[]}
  */
 MoraNodeBuilder.prototype.build = function (romans) {
     var nodes = [];
     for (const r of romans) {
-        var num = 0;
         const chars = [...r];
+        if (chars.length === 1 && ["n", "x", "l"].includes(chars[0])) {
+            nodes.push(new MoraNode(0, chars[0]));
+            continue;
+        }
         let prev;
-        for (const c of chars) {
-            if (chars.length === 1 && ["n", "x", "l"].includes(c)) {
-                const n = new MoraNode(num, c);
-                nodes.push(n);
-                continue;
-            }
-            if (!prev){
-                const root = nodes.find(n => n.val == c);
-                if (root) {
-                    prev = root;
-                } else {
-                    const n = new MoraNode(num, c);
-                    num++;
-                    nodes.push(n);
-                    prev = n;
+        for (let idx = 0; idx < chars.length; idx++) {
+            const c = chars[idx];
+            if (!prev) {
+                let root = nodes.find(n => n.val === c);
+                if (!root) {
+                    root = new MoraNode(0, c);
+                    nodes.push(root);
                 }
+                prev = root;
             } else {
-                const current = prev.children.find(n => n.val == c);
-                if (current) {
-                    prev = current;
-                } else {
-                    prev.add(c);
-                    prev = prev.children.find(n => n.val == c);
-                }
+                prev = prev.add(c);
             }
         }
     }

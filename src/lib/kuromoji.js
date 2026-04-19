@@ -13,9 +13,10 @@ function Kuromoji() {
 
 /**
  * Tokenizes a given Japanese sentence into tokens.
+ * The callback follows the Node.js convention: callback(err, tokens).
  * @param {string} dic
  * @param {string} sentence
- * @returns {string} tokenized
+ * @param {(err: Error|null, tokens?: object[]) => void} callback
  */
 Kuromoji.prototype.tokenize = function(dic, sentence, callback) {
     if (!tokenizerCache.has(dic)) {
@@ -31,11 +32,22 @@ Kuromoji.prototype.tokenize = function(dic, sentence, callback) {
         }));
     }
     tokenizerCache.get(dic).then(tokenizer => {
-        const tokens = tokenizer.tokenize(sentence);
-        callback(tokens);
+        try {
+            const tokens = tokenizer.tokenize(sentence);
+            callback(null, tokens);
+        } catch (err) {
+            callback(err);
+        }
     }).catch(err => {
-        console.error(err);
+        callback(err);
     });
+}
+
+/**
+ * Clears the cached kuromoji tokenizers. Primarily intended for tests.
+ */
+Kuromoji.clearCache = function() {
+    tokenizerCache.clear();
 }
 
 module.exports = Kuromoji;

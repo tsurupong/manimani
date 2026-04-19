@@ -8189,9 +8189,9 @@ describe("Mora Builder Test", () => {
                 ]
             }
         ]);
-        expect(builder.build("ヴぁ")).toEqual([
+        expect(builder.build("ゔぁ")).toEqual([
             {
-                from: "ヴぁ",
+                from: "ゔぁ",
                 pos: 0,
                 node: [
                     {
@@ -8208,9 +8208,9 @@ describe("Mora Builder Test", () => {
                 ]
             }
         ]);
-        expect(builder.build("ヴぃ")).toEqual([
+        expect(builder.build("ゔぃ")).toEqual([
             {
-                from: "ヴぃ",
+                from: "ゔぃ",
                 pos: 0,
                 node: [
                     {
@@ -8227,9 +8227,9 @@ describe("Mora Builder Test", () => {
                 ]
             }
         ]);
-        expect(builder.build("ヴ")).toEqual([
+        expect(builder.build("ゔ")).toEqual([
             {
-                from: "ヴ",
+                from: "ゔ",
                 pos: 0,
                 node: [
                     {
@@ -8246,9 +8246,9 @@ describe("Mora Builder Test", () => {
                 ]
             }
         ]);
-        expect(builder.build("ヴぇ")).toEqual([
+        expect(builder.build("ゔぇ")).toEqual([
             {
-                from: "ヴぇ",
+                from: "ゔぇ",
                 pos: 0,
                 node: [
                     {
@@ -8265,9 +8265,9 @@ describe("Mora Builder Test", () => {
                 ]
             }
         ]);
-        expect(builder.build("ヴぉ")).toEqual([
+        expect(builder.build("ゔぉ")).toEqual([
             {
-                from: "ヴぉ",
+                from: "ゔぉ",
                 pos: 0,
                 node: [
                     {

@@ -7295,7 +7295,7 @@ describe("Node Builder Test", () => {
                 ]
             }
         ]);
-        expect(mnb.build(mrb.build("ヴぁ"))).toEqual([
+        expect(mnb.build(mrb.build("ゔぁ"))).toEqual([
             {
                 pos: 0,
                 val: "v",
@@ -7308,7 +7308,7 @@ describe("Node Builder Test", () => {
                 ]
             }
         ]);
-        expect(mnb.build(mrb.build("ヴぃ"))).toEqual([
+        expect(mnb.build(mrb.build("ゔぃ"))).toEqual([
             {
                 pos: 0,
                 val: "v",
@@ -7321,7 +7321,7 @@ describe("Node Builder Test", () => {
                 ]
             }
         ]);
-        expect(mnb.build(mrb.build("ヴ"))).toEqual([
+        expect(mnb.build(mrb.build("ゔ"))).toEqual([
             {
                 pos: 0,
                 val: "v",
@@ -7334,7 +7334,7 @@ describe("Node Builder Test", () => {
                 ]
             }
         ]);
-        expect(mnb.build(mrb.build("ヴぇ"))).toEqual([
+        expect(mnb.build(mrb.build("ゔぇ"))).toEqual([
             {
                 pos: 0,
                 val: "v",
@@ -7347,7 +7347,7 @@ describe("Node Builder Test", () => {
                 ]
             }
         ]);
-        expect(mnb.build(mrb.build("ヴぉ"))).toEqual([
+        expect(mnb.build(mrb.build("ゔぉ"))).toEqual([
             {
                 pos: 0,
                 val: "v",
@@ -12211,7 +12211,7 @@ describe("Node Builder Test", () => {
                 children: []
             }
         ]);
-        expect(mnb.build(mrb.build("ん", "ヴぁ"))).toEqual([
+        expect(mnb.build(mrb.build("ん", "ゔぁ"))).toEqual([
             {
                 pos: 0,
                 val: "n",
@@ -12240,7 +12240,7 @@ describe("Node Builder Test", () => {
                 children: []
             }
         ]);
-        expect(mnb.build(mrb.build("ん", "ヴぃ"))).toEqual([
+        expect(mnb.build(mrb.build("ん", "ゔぃ"))).toEqual([
             {
                 pos: 0,
                 val: "n",
@@ -12269,7 +12269,7 @@ describe("Node Builder Test", () => {
                 children: []
             }
         ]);
-        expect(mnb.build(mrb.build("ん", "ヴ"))).toEqual([
+        expect(mnb.build(mrb.build("ん", "ゔ"))).toEqual([
             {
                 pos: 0,
                 val: "n",
@@ -12298,7 +12298,7 @@ describe("Node Builder Test", () => {
                 children: []
             }
         ]);
-        expect(mnb.build(mrb.build("ん", "ヴぇ"))).toEqual([
+        expect(mnb.build(mrb.build("ん", "ゔぇ"))).toEqual([
             {
                 pos: 0,
                 val: "n",
@@ -12327,7 +12327,7 @@ describe("Node Builder Test", () => {
                 children: []
             }
         ]);
-        expect(mnb.build(mrb.build("ん", "ヴぉ"))).toEqual([
+        expect(mnb.build(mrb.build("ん", "ゔぉ"))).toEqual([
             {
                 pos: 0,
                 val: "n",
@@ -22785,7 +22785,7 @@ describe("Node Builder Test", () => {
                 children: []
             }
         ]);
-        expect(mnb.build(mrb.build("っ", "ヴぁ"))).toEqual([
+        expect(mnb.build(mrb.build("っ", "ゔぁ"))).toEqual([
             {
                 pos: 0,
                 val: "x",
@@ -22848,7 +22848,7 @@ describe("Node Builder Test", () => {
                 children: []
             }
         ]);
-        expect(mnb.build(mrb.build("っ", "ヴぃ"))).toEqual([
+        expect(mnb.build(mrb.build("っ", "ゔぃ"))).toEqual([
             {
                 pos: 0,
                 val: "x",
@@ -22911,7 +22911,7 @@ describe("Node Builder Test", () => {
                 children: []
             }
         ]);
-        expect(mnb.build(mrb.build("っ", "ヴ"))).toEqual([
+        expect(mnb.build(mrb.build("っ", "ゔ"))).toEqual([
             {
                 pos: 0,
                 val: "x",
@@ -22974,7 +22974,7 @@ describe("Node Builder Test", () => {
                 children: []
             }
         ]);
-        expect(mnb.build(mrb.build("っ", "ヴぇ"))).toEqual([
+        expect(mnb.build(mrb.build("っ", "ゔぇ"))).toEqual([
             {
                 pos: 0,
                 val: "x",
@@ -23037,7 +23037,7 @@ describe("Node Builder Test", () => {
                 children: []
             }
         ]);
-        expect(mnb.build(mrb.build("っ", "ヴぉ"))).toEqual([
+        expect(mnb.build(mrb.build("っ", "ゔぉ"))).toEqual([
             {
                 pos: 0,
                 val: "x",

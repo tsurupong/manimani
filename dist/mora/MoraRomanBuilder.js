@@ -41,12 +41,14 @@ MoraRomanBuilder.prototype.build = function (current, next) {
     
             if (KanaDictionaries.XTU == current) {
                 var nextKana = dic.KanaRomanDictionaries.get(next);
-                var shiins = nextKana.origin ? nextKana.origin.shiins : nextKana.shiins;
-                var sliced = shiins.map(s => s.slice(0, 1));
-                for (const s of sliced) {
-                    if (next == "ん" && s == "n") continue;
-                    if (!romans.includes(s)) {
-                        romans.push(s);
+                if (nextKana) {
+                    var shiins = (nextKana.origin && nextKana.origin.shiins) ? nextKana.origin.shiins : nextKana.shiins;
+                    var sliced = shiins.map(s => s.slice(0, 1));
+                    for (const s of sliced) {
+                        if (next == "ん" && s == "n") continue;
+                        if (!romans.includes(s)) {
+                            romans.push(s);
+                        }
                     }
                 }
             }
@@ -88,10 +90,10 @@ function toLowerCase(symbol) {
     if (symbol == "」") return "\"";
     if (symbol == "ー") return "-";
     return symbol.replace(/[\u3000-\uFF5E]/g, (s) => {
-        var code  = s.charCodeAt(0);
+        var code = s.charCodeAt(0);
         return code >= 0xFF01 && code <= 0xFF5E
             ? String.fromCharCode(code - 0xFEE0)
-            : char;
+            : s;
     })
 }
 

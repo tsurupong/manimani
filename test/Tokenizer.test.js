@@ -1,58 +1,40 @@
 "use strict";
 
+var path = require("path");
 var Tokenizer = require("../src/Tokenizer");
-var tokenizer = new Tokenizer();
+
+var DIC_PATH = path.join(__dirname, "..", "src", "dict");
+
 describe("Tokenizer Test", () => {
-    test("single kanji word", () => {
-        function callback(data) {
-            expect(data).toBe([
-                {
-                    from: "か",
-                    pos: 0,
-                    node: [
-                        {
-                            pos: 0,
-                            val: "k",
-                            children: [
-                                {
-                                    pos: 1,
-                                    val: "a",
-                                    children: []
-                                }
-                            ]
-                        },
-                        {
-                            pos: 0,
-                            val: "c",
-                            children: [
-                                {
-                                    pos: 1,
-                                    val: "a",
-                                    children: []
-                                }
-                            ]
-                        },
-                    ]
-                },
-                {
-                    from: "き",
-                    pos: 1,
-                    node: [
-                        {
-                            pos: 0,
-                            val: "k",
-                            children: [
-                                {
-                                    pos: 1,
-                                    val: "i",
-                                    children: []
-                                }
-                            ]
-                        }
-                    ]
-                },
-            ]);
-        }
-        tokenizer.tokenize("/src/dic", "柿", callback);
-    });
+    test("single kanji word", (done) => {
+        var tokenizer = new Tokenizer();
+        tokenizer.tokenize(DIC_PATH, "柿", (err, data) => {
+            try {
+                expect(err).toBeNull();
+                expect(Array.isArray(data)).toBe(true);
+                expect(data.length).toBeGreaterThan(0);
+                expect(data[0]).toEqual(expect.objectContaining({
+                    from: expect.any(String),
+                    pos: expect.any(Number),
+                    node: expect.any(Array),
+                }));
+                done();
+            } catch (e) {
+                done(e);
+            }
+        });
+    }, 30000);
+
+    test("propagates kuromoji errors via callback", (done) => {
+        var tokenizer = new Tokenizer();
+        tokenizer.tokenize("/nonexistent/path", "柿", (err, data) => {
+            try {
+                expect(err).toBeTruthy();
+                expect(data).toBeUndefined();
+                done();
+            } catch (e) {
+                done(e);
+            }
+        });
+    }, 30000);
 });

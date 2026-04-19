@@ -193,11 +193,11 @@ const KanaDictionaries = {
     RYE: "りぇ",
     RYO: "りょ",
 
-    VA: "ヴぁ",
-    VI: "ヴぃ",
-    VU: "ヴ",
-    VE: "ヴぇ",
-    VO: "ヴぉ",
+    VA: "ゔぁ",
+    VI: "ゔぃ",
+    VU: "ゔ",
+    VE: "ゔぇ",
+    VO: "ゔぉ",
 
     XA: "ぁ",
     XI: "ぃ",

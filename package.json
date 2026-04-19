@@ -3,7 +3,7 @@
   "author": "TsuruPong",
   "license": "Apache-2.0",
   "description": "Converts kanji, katakana, and hiragana into romaji.",
-  "version": "1.2.1",
+  "version": "2.0.0",
   "main": "dist/manimani.js",
   "types": "dist/types/manimani.d.ts",
   "files": ["dist"],

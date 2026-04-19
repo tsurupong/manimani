@@ -9,10 +9,14 @@ npm i manimani
 
 # Usage
 ```
-var manimani = require("../src/manimani");
+var manimani = require("manimani");
 
-manimani.tokenize("path/to/dictionary/dir/", "柿の種", function(moras) {
-    console.log(JSON.stringify(moras, null, 2))
+manimani.tokenize("path/to/dictionary/dir/", "柿の種", function(err, moras) {
+    if (err) {
+        console.error(err);
+        return;
+    }
+    console.log(JSON.stringify(moras, null, 2));
 });
 ```
 ```
